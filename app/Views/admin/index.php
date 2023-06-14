@@ -33,6 +33,6 @@
 
 <div class="content">
     <h2>BODY</h2>
-    <p>Ini adalah halaman dashboard perpustakaan.</p>
+    <p>Ini adalah halaman admin perpustakaan.</p>
 </div>
 <?= $this->endSection() ?>

@@ -22,6 +22,12 @@ class Register extends BaseController
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
         ]);
 
+        session()->set([
+            'user_id' => $user['id'],
+            'email' => $user['email'],
+            'logged_in' => true
+        ]);
+
         return redirect('dashboard');
     }
 }

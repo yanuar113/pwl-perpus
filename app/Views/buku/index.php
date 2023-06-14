@@ -1,3 +1,6 @@
+<?= $this->extend('template/page_layout') ?>
+
+<?= $this->section('content') ?>
 <style>
     .content {
         max-width: 100%;
@@ -30,5 +33,6 @@
 
 <div class="content">
     <h2>BODY</h2>
-    <p>Ini adalah halaman dashboard perpustakaan.</p>
+    <p>Ini adalah halaman buku perpustakaan.</p>
 </div>
+<?= $this->endSection() ?>
