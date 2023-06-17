@@ -48,37 +48,31 @@ class Login extends BaseController
         $user = $userModel->where('email', $email)->first();
 
         if (!$user) {
-            $data = array(
+            $data = [
                 'success' => FALSE,
                 'message' => 'User tidak ditemukan',
                 'data' => []
-            );
-            header('Content-Type: application/json');
-            echo json_encode($data);
-            return;
+            ];
+            return $this->response->setStatusCode(404)->setJSON($data);
         }
         if (!password_verify($password, $user['password'])) {
-            $data = array(
+            $data = [
                 'success' => FALSE,
                 'message' => 'Password salah',
                 'data' => []
-            );
-            header('Content-Type: application/json');
-            echo json_encode($data);
-            return;
+            ];
+            return $this->response->setStatusCode(404)->setJSON($data);
         }
         session()->set([
             'user_id' => $user['id'],
             'email' => $user['email'],
             'logged_in' => true
         ]);
-        $data = array(
+        $data = [
             'success' => TRUE,
             'message' => 'Berhasil Login',
             'data' => $user
-        );
-        header('Content-Type: application/json');
-        echo json_encode($data);
-        return;
+        ];
+        return $this->response->setStatusCode(200)->setJSON($data);
     }
 }
