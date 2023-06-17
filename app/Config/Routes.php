@@ -30,7 +30,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/login', 'Login::index');
+$routes->get('/login', 'Login::index', ['filter' => 'loginGuard']);
 $routes->post('/login/authenticate', 'Login::authenticate');
 $routes->post('/api/login/authenticate', 'Login::authenticateApi');
 
@@ -43,7 +43,7 @@ $routes->get('/peminjaman', 'Dashboard::peminjaman', ['filter' => 'authGuard']);
 $routes->get('/pengembalian', 'Dashboard::pengembalian', ['filter' => 'authGuard']);
 
 //register
-$routes->get('register', 'Register::index');
+$routes->get('register', 'Register::index', ['filter' => 'loginGuard']);
 $routes->post('register', 'Register::register');
 
 /*
