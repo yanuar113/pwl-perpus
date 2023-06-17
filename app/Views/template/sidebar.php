@@ -59,7 +59,6 @@
     .sidebar li {
         margin-bottom: 4%;
         background-color: lightgray;
-        padding: 5% 15%;
         border-radius: 8px;
     }
 
@@ -68,31 +67,29 @@
         color: #fff;
     }
 
-    .sidebar li a:hover {
+    .sidebar li:hover a, .sidebar li a:hover, .sidebar li.active a {
         color: #fff;
-    }
-
-    .sidebar li.active a{
-        color: #fff;
+        font-weight:bold;
+        border-radius:8px;
     }
 
     .sidebar li.active {
         margin-bottom: 4%;
         background-color: #674a40;
         color: #fff;
-        padding: 5% 15%;
-        border-radius: 8px;
     }
 
     .sidebar a {
         display: flex;
         text-decoration: none;
-        /* color: #fff; */
         font-size: 1.5vw;
         white-space: nowrap;
         text-align: center;
         align-items: center;
         justify-content: center;
+        padding: 5% 15%;
+        border-radius: 8px;
+        color: black;
     }
 
     .sidebar .material-icons {
