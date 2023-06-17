@@ -23,8 +23,8 @@ class Register extends BaseController
         ]);
 
         session()->set([
-            'user_id' => $user['id'],
-            'email' => $user['email'],
+            'user_id' => $user->id,
+            'email' => $user->email,
             'logged_in' => true
         ]);
 
