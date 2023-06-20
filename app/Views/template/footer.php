@@ -17,24 +17,24 @@
         }
     }
 </style>
-<script src="<?=base_url('js/jquery.js') ?>"></script>
+<script src="<?= base_url('js/jquery.js') ?>"></script>
+<?= $this->renderSection('script') ?>
 <script>
     $(document).ready(function() {
-        //mengambil url aktif
-        var url = window.location.href;
-        //memecah url berdasarkan tanda "/"
-        var activePage = url;
-        //looping a href di dalam class sidebar
-        console.log($('.sidebar li a'))
         $('.sidebar li a').each(function() {
-            //mengambil url pada tiap href
-            var linkPage = this.href;
-            //jika url pada href sama dengan url aktif
-            if (activePage == linkPage) {
+            this.onclick = function() {
+                $("li").removeClass("active");
+                let id = this.id;
+                let url = "<?= base_url() ?>" + id
                 $(this).closest("li").addClass("active");
+                $.get(url, function(data) {
+                    let content = $($.parseHTML(data)).find(".content").html();
+                    $('.content').html(content)
+                })
             }
         });
-    }) 
+    })
 </script>
 </body>
+
 </html>

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\AnggotaModel;
 
 class Dashboard extends BaseController
 {
@@ -17,7 +18,9 @@ class Dashboard extends BaseController
     }
     public function anggota()
     {
-        return view('anggota/index');
+        $anggotaModel = new AnggotaModel();
+        $anggotas = $anggotaModel->findAll();
+        return view('anggota/index', compact('anggotas'));
     }
     public function buku()
     {
@@ -34,5 +37,5 @@ class Dashboard extends BaseController
     public function pengembalian()
     {
         return view('pengembalian/index');
-    }    
+    }
 }

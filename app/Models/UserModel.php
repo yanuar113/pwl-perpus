@@ -11,5 +11,4 @@ class UserModel extends Model
     protected $primaryKey       = 'id';
     protected $allowedFields    = ['email', 'password', 'nama'];
     protected $returnType    = 'array';
- 
 }

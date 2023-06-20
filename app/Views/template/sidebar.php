@@ -1,43 +1,43 @@
 <div class="sidebar" id="sidebar">
     <ul>
-        <li id="dashboard">
-            <a href="<?= base_url('dashboard') ?>">
+        <li>
+            <a id="dashboard">
                 <i class="material-icons">home</i>
                 Dashboard
             </a>
         </li>
-        <li id="admin">
-            <a href="<?= base_url('admin') ?>">
+        <li>
+            <a id="admin">
                 <i class="material-icons">person</i>
                 Admin
             </a>
         </li>
-        <li id="anggota">
-            <a href="<?= base_url('anggota') ?>">
+        <li>
+            <a id="anggota">
                 <i class="material-icons">group</i>
                 Anggota
             </a>
         </li>
-        <li id="buku">
-            <a href="<?= base_url('buku') ?>">
+        <li>
+            <a id="buku">
                 <i class="material-icons">book</i>
                 Buku
             </a>
         </li>
-        <li id="kategori">
-            <a href="<?= base_url('kategori') ?>">
+        <li>
+            <a id="kategori">
                 <i class="material-icons">category</i>
                 Kategori
             </a>
         </li>
-        <li id="peminjaman">
-            <a href="<?= base_url('peminjaman') ?>">
+        <li>
+            <a id="peminjaman">
                 <i class="material-icons">list</i>
                 Peminjaman
             </a>
         </li>
-        <li id="pengembalian">
-            <a href="<?= base_url('pengembalian') ?>">
+        <li>
+            <a id="pengembalian">
                 <i class="material-icons">autorenew</i>
                 Pengembalian
             </a>
@@ -63,7 +63,7 @@
     }
 
     .sidebar li:hover {
-        background-color: #674a40;
+        background-color: #333;
         color: #fff;
     }
 
@@ -71,11 +71,12 @@
         color: #fff;
         font-weight:bold;
         border-radius:8px;
+        cursor: pointer;
     }
 
     .sidebar li.active {
         margin-bottom: 4%;
-        background-color: #674a40;
+        background-color: #333;
         color: #fff;
     }
 
