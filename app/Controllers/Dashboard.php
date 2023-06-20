@@ -18,8 +18,11 @@ class Dashboard extends BaseController
     }
     public function anggota()
     {
+        //memanggil model anggota
         $anggotaModel = new AnggotaModel();
+        //mengambil seluruh data dari tabel anggota
         $anggotas = $anggotaModel->findAll();
+        //mengirim data ke view
         return view('anggota/index', compact('anggotas'));
     }
     public function buku()

@@ -16,6 +16,7 @@ class Anggota extends BaseController
     {
         //validasi
         $validation = \Config\Services::validation();
+        //mengatur rules untuk validasi dan custom message untuk error
         $validation->setRules([
             'nama' => 'required',
             'alamat' => 'required',
@@ -38,6 +39,7 @@ class Anggota extends BaseController
             ]
         ]);
 
+        //mengecek validasi dan jika validasi gagal maka akan menampilkan pesan error
         if (!$validation->withRequest($this->request)->run()) {
             $data = [
                 'success' => FALSE,
@@ -47,6 +49,7 @@ class Anggota extends BaseController
             return $this->response->setStatusCode(200)->setJSON($data);
         }
 
+        //jika validasi berhasil maka akan menyimpan data ke database
         $anggota = new AnggotaModel();
         $anggota->insert([
             'nama' => $this->request->getPost('nama'),
@@ -55,8 +58,10 @@ class Anggota extends BaseController
             'telepon' => $this->request->getPost('telepon')
         ]);
 
+        //mengambil data anggota yang baru saja disimpan
         $anggota = $anggota->where('id', $anggota->insertID())->first();
 
+        //mengembalikan nilai berupa json
         $data = [
             'success' => TRUE,
             'message' => 'Berhasil Meenambahkan Anggota',

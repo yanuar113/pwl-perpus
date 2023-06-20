@@ -62,13 +62,16 @@
         //find a href with id="anggota" in li then add class active in li
         $('li a#anggota').parent().addClass('active');
 
+        //ketika form tambah anggota di submit
         $('#form-tambah-anggota').submit(function(e) {
             e.preventDefault();
-
+            //ambil url dari form action
             let url = "<?= base_url('anggota/tambah') ?>";
+            //ambil data dari form
             let data = $(this).serialize();
+            //kirim data ke url dengan method post
             $.post(url, data, function(data) {
-                console.log(data)
+                //jika data yang dikirim dari url sukses maka tampilkan pesan sukses
                 if (data.success) {
                     $('#form-tambah-anggota').trigger("reset");
                     Swal.fire(
