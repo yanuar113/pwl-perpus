@@ -185,7 +185,7 @@
 <body>
     <header>
         <i class="material-icons">dashboard</i>
-        <h1>Header <?= $session->get('email') ?></h1>
+        <h1>Header  </h1>
     </header>
 
     <script>

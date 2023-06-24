@@ -68,5 +68,12 @@ class Anggota extends BaseController
             'data' => $anggota
         ];
         return $this->response->setStatusCode(200)->setJSON($data);
+
+    }
+    public function hapusAnggota($id) {
+        $anggota = new AnggotaModel();
+        $anggota->where('id', $id);
+        $anggota->delete();
+        return redirect()->to('anggota');
     }
 }
