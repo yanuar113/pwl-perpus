@@ -29,7 +29,7 @@
         }
 
         header {
-            background-color: #333;
+            background-color: purple;
             color: #fff;
             padding: 1%;
             display: flex;
@@ -112,7 +112,7 @@
         }
 
         .btn:hover {
-            background-color: #333;
+            background-color: purple;
             color: #fff;
         }
 

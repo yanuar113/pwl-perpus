@@ -58,12 +58,12 @@
 
     .sidebar li {
         margin-bottom: 4%;
-        background-color: lightgray;
+        background-color: purple;
         border-radius: 8px;
     }
 
     .sidebar li:hover {
-        background-color: #333;
+        background-color: lightpink;
         color: #fff;
     }
 

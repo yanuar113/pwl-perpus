@@ -33,7 +33,7 @@
 
 <div class="content">
     <p>Ini adalah halaman anggota perpustakaan.</p>
-    <a class="btn btn-black" href="anggota/tambah" id="btn-tambah-anggota">Tambah Anggota</a>
+    <a class="btn btn-green" href="anggota/tambah" id="btn-tambah-anggota">Tambah Anggota</a>
     <br />
     <table border="1">
         <tr>

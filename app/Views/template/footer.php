@@ -4,7 +4,7 @@
 
 <style>
     footer {
-        background-color: #333;
+        background-color:purple;
         color: #fff;
         padding: 1%;
         text-align: center;
