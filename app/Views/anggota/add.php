@@ -79,7 +79,11 @@
                         'Good job!',
                         data?.message,
                         'success'
-                    )
+                    ).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location = "<?= base_url('anggota') ?>";
+                        }
+                    })
                 } else {
                     Swal.fire(
                         'Oops!',
