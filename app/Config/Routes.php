@@ -41,8 +41,10 @@ $routes->get('/anggota', 'Dashboard::anggota', ['filter' => 'authGuard']);
 $routes->get('/anggota/tambah', 'Anggota::tambahAnggota', ['filter' => 'authGuard']);
 $routes->post('/anggota/tambah', 'Anggota::tambahAnggotaAction', ['filter' => 'authGuard']);
 $routes->get('/anggota/delete/(:any)', 'Anggota::hapusAnggota/$1', ['filter' => 'authGuard']);
+
 //end anggota
 $routes->get('/buku', 'Dashboard::buku', ['filter' => 'authGuard']);
+
 $routes->get('/kategori', 'Dashboard::kategori', ['filter' => 'authGuard']);
 $routes->get('/peminjaman', 'Dashboard::peminjaman', ['filter' => 'authGuard']);
 $routes->get('/pengembalian', 'Dashboard::pengembalian', ['filter' => 'authGuard']);

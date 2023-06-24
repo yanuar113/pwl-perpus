@@ -90,7 +90,7 @@
         justify-content: center;
         padding: 5% 15%;
         border-radius: 8px;
-        color: black;
+        color: white;
     }
 
     .sidebar .material-icons {

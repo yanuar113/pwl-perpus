@@ -32,7 +32,41 @@
 </style>
 
 <div class="content">
-    <h2>BODY</h2>
-    <p>Ini adalah halaman buku perpustakaan.</p>
+    <p>Ini adalah halaman Buku perpustakaan.</p>
+    <a class="btn btn-green" href="buku/tambah" id="btn-tambah-buku">Tambah Buku</a>
+    <br />
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Pengarang</th>
+            <th>Penerbit</th>
+            <th>Jumlah halaman</th>
+            <th>Sinopsis</th>
+        </tr>
+        <?php $no = 1;
+        foreach ($bukus as $row) : ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $row['judul'] ?></td>
+                <td><?= $row['pengarang'] ?></td>
+                <td><?= $row['penerbit'] ?></td>
+                <td><?= $row['tahun_terbit'] ?></td>
+                <td><?= $row['jumlah_halaman'] ?></td>
+                <td><?= $row['sinopsis'] ?></td>
+                <td>
+                    <a class="btn btn-yellow" href="buku/edit/<?= $row['id'] ?>">Edit</a>
+                    <a class="btn btn-red" href="buku/delete/<?= $row['id'] ?>">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </table>
 </div>
+<?= $this->endSection() ?>
+
+<?= $this->section('script') ?>
+<script>
+    $('li a#buku').parent().addClass('active');
+    document.title = "Buku"
+</script>
 <?= $this->endSection() ?>

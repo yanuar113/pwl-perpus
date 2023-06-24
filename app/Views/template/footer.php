@@ -1,5 +1,5 @@
 <footer>
-    <p>Footer</p>
+    <p>Yanuar Ardhi Pratama</p>
 </footer>
 
 <style>

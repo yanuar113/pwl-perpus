@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AnggotaModel;
+use App\Models\BukuModel;
 
 class Dashboard extends BaseController
 {
@@ -27,7 +28,12 @@ class Dashboard extends BaseController
     }
     public function buku()
     {
-        return view('buku/index');
+         //memanggil model anggota
+         $bukuModel = new BukuModel();
+         //mengambil seluruh data dari tabel anggota
+         $bukus = $bukuModel->findAll();
+         //mengirim data ke view
+         return view('buku/index', compact('bukus'));
     }
     public function kategori()
     {
