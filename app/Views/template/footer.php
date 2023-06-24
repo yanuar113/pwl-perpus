@@ -25,7 +25,9 @@
             this.onclick = function() {
                 $("li").removeClass("active");
                 let id = this.id;
+                document.title = id
                 let url = "<?= base_url() ?>" + id
+                window.history.pushState({urlPath:url},"",url);
                 $(this).closest("li").addClass("active");
                 $.get(url, function(data) {
                     let content = $($.parseHTML(data)).find(".content").html();

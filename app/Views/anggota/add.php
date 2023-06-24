@@ -61,6 +61,7 @@
     $(document).ready(function() {
         //find a href with id="anggota" in li then add class active in li
         $('li a#anggota').parent().addClass('active');
+        document.title = "Anggota"
 
         //ketika form tambah anggota di submit
         $('#form-tambah-anggota').submit(function(e) {

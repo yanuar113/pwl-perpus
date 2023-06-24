@@ -60,7 +60,9 @@
 </div>
 <?= $this->endSection() ?>
 
-1. Bikin Model Anggota
-2. Bikin Controller Anggota
-3. Bikin View Anggota
-4. Bikin Route Anggota
+<?= $this->section('script') ?>
+<script>
+    $('li a#anggota').parent().addClass('active');
+    document.title = "Anggota"
+</script>
+<?= $this->endSection() ?>
