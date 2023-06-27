@@ -44,6 +44,9 @@ $routes->get('/anggota/delete/(:any)', 'Anggota::hapusAnggota/$1', ['filter' => 
 
 //end anggota
 $routes->get('/buku', 'Dashboard::buku', ['filter' => 'authGuard']);
+$routes->get('/buku/tambah', 'Buku::tambahBuku', ['filter' => 'authGuard']);
+$routes->post('/buku/tambah', 'Buku::tambahBukuAction', ['filter' => 'authGuard']);
+$routes->get('/buku/delete/(:any)', 'Buku::hapusBuku/$1', ['filter' => 'authGuard']);
 
 $routes->get('/kategori', 'Dashboard::kategori', ['filter' => 'authGuard']);
 $routes->get('/peminjaman', 'Dashboard::peminjaman', ['filter' => 'authGuard']);

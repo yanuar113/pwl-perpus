@@ -41,8 +41,10 @@
             <th>Judul</th>
             <th>Pengarang</th>
             <th>Penerbit</th>
+            <th>Tahun Terbit</th>
             <th>Jumlah halaman</th>
             <th>Sinopsis</th>
+            <th>Aksi</th>
         </tr>
         <?php $no = 1;
         foreach ($bukus as $row) : ?>
