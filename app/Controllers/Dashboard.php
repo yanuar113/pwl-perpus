@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\AnggotaModel;
 use App\Models\BukuModel;
 use App\Models\PeminjamanModel;
+use App\Models\KategoriModel;
 
 class Dashboard extends BaseController
 {
@@ -38,7 +39,9 @@ class Dashboard extends BaseController
     }
     public function kategori()
     {
-        return view('kategori/index');
+        $kategoriModel = new KategoriModel();
+        $kategoris = $kategoriModel->findAll();
+        return view('kategori/index', compact('kategoris'));
     }
     public function peminjaman()
     {
