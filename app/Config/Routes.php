@@ -48,6 +48,11 @@ $routes->get('/buku/tambah', 'Buku::tambahBuku', ['filter' => 'authGuard']);
 $routes->post('/buku/tambah', 'Buku::tambahBukuAction', ['filter' => 'authGuard']);
 $routes->get('/buku/delete/(:any)', 'Buku::hapusBuku/$1', ['filter' => 'authGuard']);
 
+$routes->get('/peminjaman', 'Dashboard::peminjaman', ['filter' => 'authGuard']);
+$routes->get('/peminjaman/tambah', 'Peminjaman::tambahPeminjaman', ['filter' => 'authGuard']);
+$routes->post('/peminjaman/tambah', 'Peminjaman::tambahPeminjamanAction', ['filter' => 'authGuard']);
+$routes->get('/peminjaman/delete/(:any)', 'Peminjaman::hapusPeminjaman/$1', ['filter' => 'authGuard']);
+
 $routes->get('/kategori', 'Dashboard::kategori', ['filter' => 'authGuard']);
 $routes->get('/peminjaman', 'Dashboard::peminjaman', ['filter' => 'authGuard']);
 $routes->get('/pengembalian', 'Dashboard::pengembalian', ['filter' => 'authGuard']);

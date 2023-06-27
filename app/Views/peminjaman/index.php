@@ -32,7 +32,39 @@
 </style>
 
 <div class="content">
-    <h2>BODY</h2>
-    <p>Ini adalah halaman peminjaman perpustakaan.</p>
+    <p>Ini adalah halaman Peminjaman perpustakaan.</p>
+    <a class="btn btn-green" href="peminjaman/tambah" id="btn-tambah-peminjaman">Tambah Peminjaman</a>
+    <br />
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>Anggota</th>
+            <th>Judul Buku</th>
+            <th>Tanggal Peminjaman</th>
+            <th>Tanggal Pengembalian</th>
+            <th>Aksi</th>
+        </tr>
+        <?php $no = 1;
+        foreach ($peminjamans as $row) : ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $row['nama'] ?></td>
+                <td><?= $row['judul'] ?></td>
+                <td><?= $row['tanggal_peminjaman'] ?></td>
+                <td><?= $row['tanggal_pengembalian'] ?></td>
+                <td>
+                    <a class="btn btn-yellow" href="peminjaman/edit/<?= $row['id'] ?>">Edit</a>
+                    <a class="btn btn-red" href="peminjaman/delete/<?= $row['id'] ?>">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </table>
 </div>
+<?= $this->endSection() ?>
+
+<?= $this->section('script') ?>
+<script>
+    $('li a#peminjaman').parent().addClass('active');
+    document.title = "Peminjaman"
+</script>
 <?= $this->endSection() ?>

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\AnggotaModel;
 use App\Models\BukuModel;
+use App\Models\PeminjamanModel;
 
 class Dashboard extends BaseController
 {
@@ -28,12 +29,12 @@ class Dashboard extends BaseController
     }
     public function buku()
     {
-         //memanggil model anggota
-         $bukuModel = new BukuModel();
-         //mengambil seluruh data dari tabel anggota
-         $bukus = $bukuModel->findAll();
-         //mengirim data ke view
-         return view('buku/index', compact('bukus'));
+        //memanggil model anggota
+        $bukuModel = new BukuModel();
+        //mengambil seluruh data dari tabel anggota
+        $bukus = $bukuModel->findAll();
+        //mengirim data ke view
+        return view('buku/index', compact('bukus'));
     }
     public function kategori()
     {
@@ -41,7 +42,11 @@ class Dashboard extends BaseController
     }
     public function peminjaman()
     {
-        return view('peminjaman/index');
+        $peminjamanModel = new PeminjamanModel();
+        //join table anggota dan buku
+        $peminjamans = $peminjamanModel->join('anggota', 'anggota.id = peminjaman.id_anggota')->join('buku', 'buku.id = peminjaman.id_buku')
+            ->select('peminjaman.*, anggota.nama, buku.judul')->findAll();
+        return view('peminjaman/index', compact('peminjamans'));
     }
     public function pengembalian()
     {

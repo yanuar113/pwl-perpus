@@ -34,19 +34,19 @@ class Buku extends BaseController
                 'required' => 'Alamat harus diisi.'
             ],
             'penerbit' => [
-                'required' => 'Email harus diisi.',
+                'required' => 'Penerbit harus diisi.',
 
             ],
             'tahun_terbit' => [
-                'required' => 'Email harus diisi.',
+                'required' => 'Tahun terbit harus diisi.',
 
             ],
             'jumlah_halaman' => [
-                'required' => 'Email harus diisi.',
+                'required' => 'Jumlah halaman harus diisi.',
 
             ],
             'sinopsis' => [
-                'required' => 'Email harus diisi.',
+                'required' => 'Sinopsis harus diisi.',
 
             ],
 
@@ -84,6 +84,7 @@ class Buku extends BaseController
         ];
         return $this->response->setStatusCode(200)->setJSON($data);
     }
+
     public function hapusBuku($id)
     {
         $buku = new BukuModel();
