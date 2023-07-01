@@ -8,6 +8,7 @@ use App\Models\BukuModel;
 use App\Models\PeminjamanModel;
 use App\Models\KategoriModel;
 use App\Models\PengembalianModel;
+use App\Models\AdminModel;
 
 class Dashboard extends BaseController
 {
@@ -18,7 +19,9 @@ class Dashboard extends BaseController
 
     public function admin()
     {
-        return view('admin/index');
+        $adminModel = new AdminModel();
+        $admins = $adminModel->findAll();
+        return view('admin/index', compact('admins'));
     }
     public function anggota()
     {
