@@ -99,6 +99,14 @@
             box-shadow: 0 0 5px #333;
         }
 
+        /* style for select option */
+        .form-group select {
+            padding: 1%;
+            border: 1px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         .btn {
             padding: 1%;
             border: 1px solid #333;
@@ -185,7 +193,7 @@
 <body>
     <header>
         <i class="material-icons">dashboard</i>
-        <h1>Header  </h1>
+        <h1>Header </h1>
     </header>
 
     <script>
