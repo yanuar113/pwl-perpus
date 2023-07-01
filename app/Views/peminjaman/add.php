@@ -66,7 +66,7 @@
             <label for="tanggal_pengembalian">Tanggal Pengembalian</label>
             <input type="date" name="tanggal_pengembalian" id="tanggal_pengembalian" />
         </div>
-        <input class="btn btn-green" type="submit" value="Tambah Buku" />
+        <input class="btn btn-green" type="submit" value="Tambah Peminjaman" />
         <a href="<?= base_url('peminjaman') ?>" class="btn btn-red">Gak Jadi</a>
     </form>
 </div>
