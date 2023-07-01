@@ -1,5 +1,5 @@
 <footer>
-    <p>Yanuar Ardhi Pratama</p>
+    <p>Powered by Dotech</p>
 </footer>
 
 <style>
@@ -37,6 +37,7 @@
         });
     })
 </script>
+
 </body>
 
 </html>
