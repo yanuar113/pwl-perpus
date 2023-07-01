@@ -7,6 +7,8 @@ use App\Models\AnggotaModel;
 use App\Models\BukuModel;
 use App\Models\PeminjamanModel;
 use App\Models\KategoriModel;
+use App\Models\PengembalianModel;
+use App\Models\AdminModel;
 
 class Dashboard extends BaseController
 {
@@ -25,7 +27,9 @@ class Dashboard extends BaseController
 
     public function admin()
     {
-        return view('admin/index');
+        $adminModel = new AdminModel();
+        $admins = $adminModel->findAll();
+        return view('admin/index', compact('admins'));
     }
     public function anggota()
     {
@@ -61,6 +65,12 @@ class Dashboard extends BaseController
     }
     public function pengembalian()
     {
-        return view('pengembalian/index');
+        $pengembalianModel = new PengembalianModel();
+        $pengembalians = $pengembalianModel->join('peminjaman', 'pengembalian.id_peminjaman = peminjaman.id')
+        ->join('anggota', 'anggota.id = peminjaman.id_anggota')
+        ->join('buku', 'buku.id = peminjaman.id')
+        ->select('pengembalian.*, buku.judul, anggota.nama, peminjaman.tanggal_peminjaman, peminjaman.tanggal_pengembalian as tanggal_harus_kembali')
+        ->findAll();
+        return view('pengembalian/index', compact('pengembalians'));
     }
 }

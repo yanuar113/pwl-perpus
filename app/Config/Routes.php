@@ -41,7 +41,10 @@ $routes->get('/anggota', 'Dashboard::anggota', ['filter' => 'authGuard']);
 $routes->get('/anggota/tambah', 'Anggota::tambahAnggota', ['filter' => 'authGuard']);
 $routes->post('/anggota/tambah', 'Anggota::tambahAnggotaAction', ['filter' => 'authGuard']);
 $routes->get('/anggota/delete/(:any)', 'Anggota::hapusAnggota/$1', ['filter' => 'authGuard']);
-
+//admin
+$routes->get('/admin/tambah', 'Admin::tambahAdmin', ['filter' => 'authGuard']);
+$routes->post('/admin/tambah', 'Admin::tambahAdminAction', ['filter' => 'authGuard']);
+$routes->get('/admin/delete/(:any)', 'Admin::hapusAdmin/$1', ['filter' => 'authGuard']);
 //end anggota
 $routes->get('/buku', 'Dashboard::buku', ['filter' => 'authGuard']);
 $routes->get('/buku/tambah', 'Buku::tambahBuku', ['filter' => 'authGuard']);
@@ -55,11 +58,13 @@ $routes->get('/peminjaman/delete/(:any)', 'Peminjaman::hapusPeminjaman/$1', ['fi
 
 $routes->get('/kategori', 'Dashboard::kategori', ['filter' => 'authGuard']);
 $routes->get('/kategori/tambah', 'Kategori::tambahKategori', ['filter' => 'authGuard']);
-$routes->post('/kategori/tambah', 'kategori::tambahKategoriAction', ['filter' => 'authGuard']);
+$routes->post('/kategori/tambah', 'Kategori::tambahKategoriAction', ['filter' => 'authGuard']);
 $routes->get('/kategori/delete/(:any)', 'Kategori::hapusKategori/$1', ['filter' => 'authGuard']);
 
-$routes->get('/peminjaman', 'Dashboard::peminjaman', ['filter' => 'authGuard']);
 $routes->get('/pengembalian', 'Dashboard::pengembalian', ['filter' => 'authGuard']);
+$routes->get('/pengembalian/tambah', 'Pengembalian::tambahPengembalian', ['filter' => 'authGuard']);
+$routes->post('/pengembalian/tambah', 'Pengembalian::tambahPengembalianAction', ['filter' => 'authGuard']);
+$routes->get('/pengembalian/delete/(:any)', 'Pengembalian::hapusPengembalian/$1', ['filter' => 'authGuard']);
 
 //register
 $routes->get('register', 'Register::index', ['filter' => 'loginGuard']);

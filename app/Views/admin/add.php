@@ -32,42 +32,22 @@
 </style>
 
 <div class="content">
-    <p>Ini adalah halaman tambah peminjaman perpustakaan.</p>
-    <form method="post" id="form-tambah-peminjaman">
+    <p>Ini adalah halaman tambah admin perpustakaan.</p>
+    <form method="post" id="form-tambah-admin">
         <div class="form-group">
-            <label for="buku">Anggota</label>
-            <select name="id_anggota" id="id_anggota">
-                <?php
-                //foreach $anggotas
-                foreach ($anggotas as $anggota) { ?>
-                    <option value="<?= $anggota['id'] ?>"><?= $anggota['nama'] ?></option>
-                <?php
-                }
-                ?>
-            </select>
+            <label for="name">Nama</label>
+            <input type="text" name="nama" id="nama" />
         </div>
         <div class="form-group">
-            <label for="buku">Buku</label>
-            <select name="id_buku" id="id_buku">
-                <?php
-                //foreach $bukus
-                foreach ($bukus as $buku) { ?>
-                    <option value="<?= $buku['id'] ?>"><?= $buku['judul'] ?></option>
-                <?php
-                }
-                ?>
-            </select>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
         </div>
         <div class="form-group">
-            <label for="tanggal_peminjaman">Tanggal Peminjaman</label>
-            <input type="date" name="tanggal_peminjaman" id="tanggal_peminjaman" />
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
         </div>
-        <div class="form-group">
-            <label for="tanggal_pengembalian">Tanggal Pengembalian</label>
-            <input type="date" name="tanggal_pengembalian" id="tanggal_pengembalian" />
-        </div>
-        <input class="btn btn-green" type="submit" value="Tambah Peminjaman" />
-        <a href="<?= base_url('peminjaman') ?>" class="btn btn-red">Gak Jadi</a>
+        <input class="btn btn-green" type="submit" value="Tambah Admin" />
+        <a href="<?= base_url('admin') ?>" class="btn btn-red">Gak Jadi</a>
     </form>
 </div>
 <?= $this->endSection() ?>
@@ -76,28 +56,28 @@
 <script>
     $(document).ready(function() {
         //find a href with id="anggota" in li then add class active in li
-        $('li a#peminjaman').parent().addClass('active');
-        document.title = "Buku"
+        $('li a#admin').parent().addClass('active');
+        document.title = "Admin"
 
         //ketika form tambah anggota di submit
-        $('#form-tambah-peminjaman').submit(function(e) {
+        $('#form-tambah-admin').submit(function(e) {
             e.preventDefault();
             //ambil url dari form action
-            let url = "<?= base_url('peminjaman/tambah') ?>";
+            let url = "<?= base_url('admin/tambah') ?>";
             //ambil data dari form
             let data = $(this).serialize();
             //kirim data ke url dengan method post
             $.post(url, data, function(data) {
                 //jika data yang dikirim dari url sukses maka tampilkan pesan sukses
                 if (data.success) {
-                    $('#form-tambah-peminjaman').trigger("reset");
+                    $('#form-tambah-admin').trigger("reset");
                     Swal.fire(
                         'Good job!',
                         data?.message,
                         'success'
                     ).then((result) => {
                         if (result.isConfirmed) {
-                            window.location = "<?= base_url('peminjaman') ?>";
+                            window.location = "<?= base_url('admin') ?>";
                         }
                     })
                 } else {
