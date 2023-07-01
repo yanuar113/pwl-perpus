@@ -11,8 +11,16 @@ use App\Models\KategoriModel;
 class Dashboard extends BaseController
 {
     public function index()
-    {
-        return view('dashboard/index');
+    {   
+        $anggota = new AnggotaModel();
+        $jumlah_anggota = $anggota->countAllResults();
+        $buku = new BukuModel();
+        $jumlah_buku = $buku->countAllResults();
+        $peminjaman = new PeminjamanModel();
+        $jumlah_peminjaman = $peminjaman->countAllResults();
+
+        return view('dashboard/index',compact('jumlah_anggota', 'jumlah_buku', 'jumlah_peminjaman'));
+       
     }
 
     public function admin()

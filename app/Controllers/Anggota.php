@@ -76,4 +76,5 @@ class Anggota extends BaseController
         $anggota->delete();
         return redirect()->to('anggota');
     }
+   
 }
